@@ -1,0 +1,18 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "The best way to watch viedos.",
+  "scripts": {
+    "win": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0914eagle/wetube-reloaded.git"
+  },
+  "author": "Hee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0914eagle/wetube-reloaded/issuses"
+  },
+  "homepage": "https://github.com/0914eagle/wetube-reloaded#readme"
+}
