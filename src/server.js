@@ -1,18 +1,20 @@
 import express from "express";
+import morgan from "morgan";
+import globalRouter from "./routers/globalRouter";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
 
-const PORT = 4000;
-
+const PORT = 8000;
+const logger = morgan("dev");
 const app = express();
 
-const logger = (req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-};
-const handleHome = (req, res, next) => {
-  return res.send("I love middlewares");
-};
-
-app.get("/", logger, handleHome);
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views");
+app.use(logger);
+app.use(express.urlencoded({ extended: true }));
+app.use("/", globalRouter);
+app.use("/videos", videoRouter);
+app.use("/users", userRouter);
 
 const handleListening = () =>
   console.log(`Server lisenting on port http://localhost:${PORT}`);
